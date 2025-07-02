@@ -1,9 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Construction, Music, Users, ClipboardList } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: "🏗️",
+      icon: Construction,
       title: "Montagem de Estruturas",
       description: "Palcos, coberturas, arquibancadas e estruturas metálicas para eventos de todos os portes.",
       features: [
@@ -14,7 +16,7 @@ const Services = () => {
       ]
     },
     {
-      icon: "🎵",
+      icon: Music,
       title: "Locação de Equipamentos",
       description: "Som, iluminação, vídeo e equipamentos técnicos de última geração para seu evento.",
       features: [
@@ -25,7 +27,7 @@ const Services = () => {
       ]
     },
     {
-      icon: "👥",
+      icon: Users,
       title: "Recursos Humanos",
       description: "Equipe técnica especializada para montagem, operação e desmontagem do seu evento.",
       features: [
@@ -36,7 +38,7 @@ const Services = () => {
       ]
     },
     {
-      icon: "📋",
+      icon: ClipboardList,
       title: "Organização Geral",
       description: "Coordenação completa do seu evento, desde o planejamento até a execução final.",
       features: [
@@ -72,9 +74,22 @@ const Services = () => {
               >
                 <CardHeader className="pb-4">
                   <div className="flex items-center mb-4">
-                    <div className="text-4xl mr-4 group-hover:scale-110 transition-transform duration-300">
-                      {service.icon}
-                    </div>
+                    <motion.div 
+                      className="mr-4"
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: [0, -10, 10, -10, 0],
+                      }}
+                      transition={{ 
+                        duration: 0.6,
+                        ease: "easeInOut"
+                      }}
+                    >
+                      <service.icon 
+                        size={40} 
+                        className="text-primary group-hover:text-secondary transition-colors duration-300" 
+                      />
+                    </motion.div>
                     <CardTitle className="text-2xl text-primary group-hover:text-secondary transition-colors duration-300">
                       {service.title}
                     </CardTitle>
