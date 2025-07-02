@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// EquipePampa Brand Colors
+				brand: {
+					green: 'hsl(var(--brand-green))',
+					yellow: 'hsl(var(--brand-yellow))',
+					dark: 'hsl(var(--brand-dark))',
+					gray: 'hsl(var(--brand-gray))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

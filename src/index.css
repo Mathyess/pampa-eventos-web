@@ -2,39 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* EquipePampa Design System - Industrial/Technical Theme
+All colors MUST be HSL. Black primary, vibrant green and yellow accents.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* EquipePampa Brand Colors */
+    --background: 210 11% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 13% 12%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 13% 12%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Vibrant Green - Brand Primary */
+    --primary: 127 84% 45%;
+    --primary-foreground: 210 11% 6%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Yellow Accent */
+    --secondary: 54 100% 62%;
+    --secondary-foreground: 210 11% 6%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 13% 20%;
+    --muted-foreground: 210 11% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Green Accent variant */
+    --accent: 127 84% 45%;
+    --accent-foreground: 210 11% 6%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 13% 20%;
+    --input: 210 13% 15%;
+    --ring: 127 84% 45%;
+
+    /* Custom Brand Colors */
+    --brand-green: 127 84% 45%;
+    --brand-yellow: 54 100% 62%;
+    --brand-dark: 210 11% 6%;
+    --brand-gray: 210 13% 12%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-green)), hsl(var(--brand-yellow)));
+    --gradient-dark: linear-gradient(135deg, hsl(var(--brand-dark)), hsl(var(--brand-gray)));
+    
+    /* Shadows with brand colors */
+    --shadow-green: 0 10px 30px -10px hsl(var(--brand-green) / 0.3);
+    --shadow-yellow: 0 5px 20px -5px hsl(var(--brand-yellow) / 0.4);
 
     --radius: 0.5rem;
 
@@ -100,6 +118,58 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Industrial/Technical Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+@layer components {
+  /* Custom Component Styles */
+  .hero-gradient {
+    background: var(--gradient-dark);
+  }
+  
+  .text-gradient {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .shadow-brand-green {
+    box-shadow: var(--shadow-green);
+  }
+  
+  .shadow-brand-yellow {
+    box-shadow: var(--shadow-yellow);
+  }
+  
+  .btn-industrial {
+    @apply relative overflow-hidden transition-all duration-300 font-semibold;
+  }
+  
+  .btn-industrial::before {
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full transition-transform duration-700;
+    content: '';
+  }
+  
+  .btn-industrial:hover::before {
+    @apply translate-x-full;
   }
 }
