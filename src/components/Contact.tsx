@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
+import { Phone, MessageCircle, Mail } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -124,9 +126,16 @@ const Contact = () => {
                   <h3 className="text-xl font-bold text-primary mb-4">Contato Direto</h3>
                   <div className="space-y-4">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                        <span className="text-primary text-xl">📞</span>
-                      </div>
+                      <motion.div 
+                        className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotate: [0, -5, 5, 0],
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <Phone className="text-primary" size={20} />
+                      </motion.div>
                       <div>
                         <div className="font-semibold">Telefone</div>
                         <div className="text-muted-foreground">(51) 99999-9999</div>
@@ -134,9 +143,16 @@ const Contact = () => {
                     </div>
                     
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mr-4">
-                        <span className="text-secondary text-xl">💬</span>
-                      </div>
+                      <motion.div 
+                        className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mr-4"
+                        whileHover={{ 
+                          scale: 1.1,
+                          y: [-2, 2, -2, 0],
+                        }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <MessageCircle className="text-secondary" size={20} />
+                      </motion.div>
                       <div>
                         <div className="font-semibold">WhatsApp</div>
                         <div className="text-muted-foreground">(51) 99999-9999</div>
@@ -144,9 +160,16 @@ const Contact = () => {
                     </div>
                     
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4">
-                        <span className="text-primary text-xl">📧</span>
-                      </div>
+                      <motion.div 
+                        className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mr-4"
+                        whileHover={{ 
+                          scale: 1.1,
+                          rotate: [0, 10, -10, 0],
+                        }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Mail className="text-primary" size={20} />
+                      </motion.div>
                       <div>
                         <div className="font-semibold">E-mail</div>
                         <div className="text-muted-foreground">contato@equipepampa.com.br</div>
